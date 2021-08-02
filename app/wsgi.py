@@ -1,6 +1,6 @@
 from final import init_app
 
-
+"""Initialization from __init__.py"""
 app = init_app()
 
 if __name__ == "__main__":
