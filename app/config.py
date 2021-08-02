@@ -15,4 +15,4 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
-    SECRET_KEY = 'GDtfDCFYjD'
+    SECRET_KEY = 'ABcdEfGHij'
