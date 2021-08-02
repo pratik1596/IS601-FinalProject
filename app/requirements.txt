@@ -5,3 +5,9 @@ flask-sqlalchemy
 flask-login
 flask-wtf
 email_validator
+wtforms
+python-dotenv
+flask-login
+ddtrace
+flask-session
+redis

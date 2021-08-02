@@ -37,3 +37,14 @@ INSERT INTO mlb_teams (Team, Payroll_millions, Wins) VALUES
     ('Rockies',       78.06, 64),
     ('Cubs',          88.19, 61),
     ('Astros',        60.65, 55);
+
+CREATE TABLE IF NOT EXISTS `users-login` (
+    `id` int AUTO_INCREMENT,
+    `name` VARCHAR(100) CHARACTER SET utf8,
+    `email` VARCHAR(40) CHARACTER SET utf8,
+    `password` VARCHAR(200) CHARACTER SET utf8,
+    `website` VARCHAR(60) CHARACTER SET utf8,
+    `created_on` DATETIME,
+    `last_login` DATETIME,
+    PRIMARY KEY (`id`)
+);

@@ -9,7 +9,7 @@ app.login_manager = login_manager
 
 @app.route('/', methods=['GET'])
 def index():
-    user = {'username': 'Pratik'}
+    user = {'username': 'MLB Teams 2012 Records'}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM teamsData.mlb_teams order by team')
     result = cursor.fetchall()
@@ -63,7 +63,7 @@ def form_delete_post(team_id):
     return redirect("/", code=302)
 
 
-@app.route('/api/v1/team', methods=['GET'])
+@app.route('/api/v1/teams', methods=['GET'])
 def api_browse() -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM teamsData.mlb_teams')
@@ -73,7 +73,7 @@ def api_browse() -> str:
     return resp
 
 
-@app.route('/api/v1/team/<int:team_id>', methods=['GET'])
+@app.route('/api/v1/teams/<int:team_id>', methods=['GET'])
 def api_retrieve(team_id) -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM teamsData.mlb_teams WHERE id=%s', team_id)
@@ -83,11 +83,9 @@ def api_retrieve(team_id) -> str:
     return resp
 
 
-@app.route('/api/v1/team/new', methods=['POST'])
+@app.route('/api/v1/teams/new', methods=['POST'])
 def api_add() -> str:
     content = request.json
-    #app.logger.info('content')
-    #app.logger.info(content)
     cursor = mysql.get_db().cursor()
     inputData = (content['Team'], content['Payroll_millions'], content['Wins'])
     sql_insert_query = """INSERT INTO teamsData.mlb_teams (Team,Payroll_millions,Wins) VALUES (%s, %s, %s) """
@@ -97,7 +95,7 @@ def api_add() -> str:
     return resp
 
 
-@app.route('/api/v1/team/<int:team_id>', methods=['PUT'])
+@app.route('/api/v1/teams/<int:team_id>', methods=['PUT'])
 def api_edit(team_id):
     content = request.json
 
@@ -111,7 +109,7 @@ def api_edit(team_id):
     return resp
 
 
-@app.route('/api/v1/team/<int:team_id>', methods=['DELETE'])
+@app.route('/api/v1/teams/<int:team_id>', methods=['DELETE'])
 def api_delete(team_id) -> str:
     content = request.json
 
@@ -125,6 +123,5 @@ def api_delete(team_id) -> str:
 @app.route("/logout")
 @login_required
 def logout():
-    """User log-out logic."""
     logout_user()
     return redirect(url_for('auth_bp.login'))
