@@ -4,13 +4,6 @@
 {% block content %}
   <div class="form-wrapper">
 
-    <div class="logo">
-      <img
-        src="{{ url_for('static', filename='dist/img/logo.png') }}"
-        alt="logo"
-      />
-    </div>
-
     {% for message in get_flashed_messages() %}
       <div class="alert alert-warning">
         <button
@@ -23,7 +16,7 @@
       </div>
     {% endfor %}
 
-    <h1>Sign Up</h1>
+    <h1><b>Sign Up</b></h1>
 
     <form method="POST" action="/signup">
       {{ form.csrf_token }}
@@ -41,7 +34,7 @@
 
       <fieldset class="email">
         {{ form.email.label }}
-        {{ form.email(placeholder='youremail@example.com') }}
+        {{ form.email(placeholder='email@example.com') }}
         {% if form.email.errors %}
           <ul class="errors">
             {% for error in form.email.errors %}
@@ -52,7 +45,7 @@
 
       <fieldset class="password">
         {{ form.password.label }}
-        {{ form.password }}
+        {{ form.password(placeholder='*******') }}
         {% if form.password.errors %}
           <ul class="errors">
             {% for error in form.password.errors %}
@@ -63,7 +56,7 @@
 
       <fieldset class="confirm">
         {{ form.confirm.label }}
-        {{ form.confirm }}
+        {{ form.confirm(placeholder='*******') }}
         {% if form.confirm.errors %}
           <ul class="errors">
             {% for error in form.confirm.errors %}
@@ -74,7 +67,7 @@
 
       <fieldset class="website">
         {{ form.website.label }}
-        {{ form.website(placeholder='http://www.example.com') }}
+        {{ form.website(placeholder='www.example.com') }}
       </fieldset>
 
       <div class="submit-button">

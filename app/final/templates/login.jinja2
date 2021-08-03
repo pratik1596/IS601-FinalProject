@@ -1,15 +1,7 @@
 {% extends "layout.html" %}
 
-
 {% block content %}
   <div class="form-wrapper">
-
-    <div class="logo">
-      <img
-        src="{{ url_for('static', filename='dist/img/logo.png') }}"
-        alt="logo"
-      />
-    </div>
 
     {% for message in get_flashed_messages() %}
       <div class="alert alert-warning">
@@ -23,14 +15,14 @@
       </div>
     {% endfor %}
 
-    <h1>Log In</h1>
+      <h2><b>Log In</b></h2>
 
     <form method="POST" action="/login">
       {{ form.csrf_token }}
 
       <fieldset class="email">
         {{ form.email.label }}
-        {{ form.email(placeholder='youremail@example.com') }}
+        {{ form.email(placeholder='Email') }}
         {% if form.email.errors %}
           <ul class="errors">
             {% for error in form.email.errors %}
@@ -41,7 +33,7 @@
 
       <fieldset class="password">
         {{ form.password.label }}
-        {{ form.password }}
+        {{ form.password(placeholder='*******') }}
         {% if form.email.errors %}
           <ul class="errors">
             {% for error in form.password.errors %}
