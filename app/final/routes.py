@@ -1,6 +1,6 @@
 from flask import current_app as app
 import simplejson as json
-from flask import request, Response, redirect, url_for
+from flask import request, Response, redirect, url_for, session
 from flask import render_template
 from flask_login import current_user, login_required, logout_user
 from . import *
@@ -9,7 +9,7 @@ app.login_manager = login_manager
 
 @app.route('/', methods=['GET'])
 def index():
-    user = {'username': 'MLB Teams 2012 Records'}
+    user = {'username': str(session.get('username'))}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM teamsData.mlb_teams order by team')
     result = cursor.fetchall()
@@ -124,4 +124,5 @@ def api_delete(team_id) -> str:
 @login_required
 def logout():
     logout_user()
+    session['username'] = ''
     return redirect(url_for('auth_bp.login'))
