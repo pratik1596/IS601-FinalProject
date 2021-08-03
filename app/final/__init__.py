@@ -3,7 +3,6 @@ from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-
 from . import view
 
 db = SQLAlchemy()
@@ -12,7 +11,6 @@ login_manager = LoginManager()
 
 def init_app():
     app = Flask(__name__)
-
     app.config.from_object('config.Config')
 
     mysql.init_app(app)
