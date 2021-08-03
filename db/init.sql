@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS mlb_teams (
     `Team` VARCHAR(12) CHARACTER SET utf8,
     `Payroll_millions` NUMERIC(5, 2),
     `Wins` INT,
-    PRIMARY KEY('id')
+    PRIMARY KEY ('id')
 );
 INSERT INTO mlb_teams (Team, Payroll_millions, Wins) VALUES
     ('Nationals',     81.34, 98),
