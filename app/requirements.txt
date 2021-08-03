@@ -11,3 +11,7 @@ flask-login
 ddtrace
 flask-session
 redis
+flask-assets
+lesscpy
+cssmin
+jsmin
