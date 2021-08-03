@@ -2,9 +2,11 @@ CREATE DATABASE teamsData;
 use teamsData;
 
 CREATE TABLE IF NOT EXISTS mlb_teams (
+    'id' INT(11) AUTO INCREMENT,
     `Team` VARCHAR(12) CHARACTER SET utf8,
     `Payroll_millions` NUMERIC(5, 2),
-    `Wins` INT
+    `Wins` INT,
+    PRIMARY KEY('id')
 );
 INSERT INTO mlb_teams (Team, Payroll_millions, Wins) VALUES
     ('Nationals',     81.34, 98),
