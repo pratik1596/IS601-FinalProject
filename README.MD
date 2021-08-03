@@ -19,4 +19,4 @@ Steps 1 to 4 are covered as this project is an extension of Project 3.
 The next steps are according to the tutorial on different branches.
 Some steps did not have significant change in project hence the branches are not consecutive.
 
-The screenshots for the project are in Final Project.docx
+The screenshots for the project are in [Final Project.docx] (https://github.com/pratik1596/IS601-FinalProject/blob/master/Final%20Project.docx?raw=true)
